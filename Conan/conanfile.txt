@@ -1,7 +1,7 @@
 [requires]
     protobuf/3.21.1
 
-    boost/1.79.0
+    boost/1.80.0
 
     zstd/1.5.2
     zlib/1.2.12
