@@ -1,9 +1,16 @@
-﻿cmake_minimum_required(VERSION 3.16)
+﻿cmake_minimum_required(VERSION 3.23)
 project(polar-uv)
+
+#det compiler specific flag
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(COMPILER_SPECIFIC_FLAGS "-fcoroutines-ts")
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    set(COMPILER_SPECIFIC_FLAGS "-fcoroutines")
+endif ()
 
 # build options
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "-fcoroutines -flto")
+set(CMAKE_CXX_FLAGS "${COMPILER_SPECIFIC_FLAGS} -flto -static")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -Wpedantic -Wnon-virtual-dtor -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wshadow=compatible-local -Wcast-qual")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -mtune=native")
 
@@ -38,4 +45,4 @@ if (CMAKE_BUILD_TYPE MATCHES "Debug")
 endif ()
 
 install(TARGETS polar-uv DESTINATION /home/pi/polar-uv)
-install(FILES Settings.json  DESTINATION /home/pi/polar-uv)
+install(FILES Settings.json DESTINATION /home/pi/polar-uv)
