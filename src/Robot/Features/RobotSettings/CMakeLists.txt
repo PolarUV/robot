@@ -1,8 +1,5 @@
 project (RobotSettings)
 
-#do some cmake-protobug magic
-find_package(Protobuf REQUIRED)
-
 #compile .proto to c++ code
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS RobotSettingsMessage.proto)
 
