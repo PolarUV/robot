@@ -1,10 +1,10 @@
 [requires]
-    protobuf/3.21.1
+    protobuf/3.21.9
 
-    boost/1.80.0
+    boost/1.81.0
 
     zstd/1.5.2
-    zlib/1.2.12
+    zlib/1.2.13
 
     gstreamer/1.19.2
     gst-plugins-base/1.19.1
@@ -14,6 +14,9 @@
     freetype/2.11.0
     libalsa/1.1.9
     expat/2.4.8
+
+    libffi/3.4.3
+    cpuinfo/cci.20220228
 
 #  ffmpeg/4.4
 #  opencv/4.5.5
