@@ -7,11 +7,11 @@ Hardware dependencies:
 - spi
 
 Software dependencies:
- - clang - 14
+ - gcc >= 10.2
  - cmake >= 3.23
  - linux-drivers for i2c bus
  - linux-drivers for spi bus
- - conan 1.52
+ - conan 1.56
  - all needed libraries automatically installing by conan
 
 
