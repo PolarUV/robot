@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required(VERSION 3.23)
 project(polar-uv)
 
-#det compiler specific flag
+#set compiler specific flag
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     set(COMPILER_SPECIFIC_FLAGS "-fcoroutines-ts")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -10,8 +10,8 @@ endif ()
 
 # build options
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "${COMPILER_SPECIFIC_FLAGS} -flto -static")
-set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -Wpedantic -Wnon-virtual-dtor -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wshadow=compatible-local -Wcast-qual")
+set(CMAKE_CXX_FLAGS "${COMPILER_SPECIFIC_FLAGS} -flto")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -Wnon-virtual-dtor -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wshadow=compatible-local -Wcast-qual")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -mtune=native")
 
 set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time")
@@ -29,13 +29,15 @@ include(${CMAKE_BINARY_DIR}/conan.cmake)
 
 conan_cmake_autodetect(settings)
 conan_cmake_install(PATH_OR_REFERENCE .
-        BUILD missing
-        REMOTE starwalker
+        BUILD outdated
         REMOTE conancenter
         SETTINGS ${settings})
 
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
+
+# Найти cmake команды для protobuf-compiler
+find_package(Protobuf REQUIRED)
 
 # Включите подпроекты.
 add_subdirectory("src")
