@@ -6,7 +6,7 @@
 #include "./Peripheral/Peripheral.hpp"
 #include "./DataTransmissions/DataTransmissions.hpp"
 #include "./TcpSession/TcpSession.hpp"
-#include "./Videostream/Gstreamer.hpp"
+#include "./VideoStream/Gstreamer.hpp"
 
 namespace lib {
     void Initialize();

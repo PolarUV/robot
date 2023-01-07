@@ -2,7 +2,7 @@
 #define ROBOT_VIDEO_HPP
 
 #include <TcpSession/TcpSession.hpp>
-#include <Videostream/Gstreamer.hpp>
+#include <VideoStream/Gstreamer.hpp>
 
 namespace app {
 
