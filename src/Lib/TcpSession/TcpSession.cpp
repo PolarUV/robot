@@ -73,7 +73,7 @@ inline void SendResponse(BoostSocket &socket, const Response &response) {
 
 /*****************TcpSession member functions*************************/
 void TcpSession::Start() {
-    using TimePoint = std::chrono::steady_clock::time_point;
+    //using TimePoint = std::chrono::steady_clock::time_point;
 
     Buffer<BUFFER_SIZE> buffer{};
 
@@ -89,11 +89,11 @@ void TcpSession::Start() {
 
                 auto requestHeader = ReadData(socket, buffer);
 
-                TimePoint begin = std::chrono::steady_clock::now();
+                //TimePoint begin = std::chrono::steady_clock::now();
 
                 ArrayView data{buffer.data(), 0};
 
-                TimePoint end = std::chrono::steady_clock::now();
+                //TimePoint end = std::chrono::steady_clock::now();
 
                 if (requestHeader.Type == RequestTypeEnum::W
                     ||

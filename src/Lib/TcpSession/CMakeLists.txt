@@ -1,5 +1,3 @@
-cmake_minimum_required (VERSION 3.16)
-
 project (TcpSession)
 
 add_library(TcpSession TcpSession.hpp TcpSession.cpp)

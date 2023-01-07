@@ -1,5 +1,3 @@
-cmake_minimum_required (VERSION 3.16)
-
 project (Logger)
 
 add_library(Logger Logger.hpp Logger.cpp)

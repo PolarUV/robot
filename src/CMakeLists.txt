@@ -1,6 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.16)
-
-include_directories(Lib)
+﻿include_directories(Lib)
 
 add_subdirectory(Lib)
 add_subdirectory(Robot)
