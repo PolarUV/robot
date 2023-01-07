@@ -1,5 +1,5 @@
 [requires]
-    protobuf/3.21.9
+    protobuf/3.21.1
 
     boost/1.81.0
 
